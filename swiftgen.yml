@@ -1,0 +1,17 @@
+xcassets:
+  inputs: "FeedMe/Assets.xcassets"
+  outputs:
+    templatePath: "Configuration/Templates/swift5_overridable.stencil"
+    output: "App/SupportingFiles/Generated/Assets.swift"
+    params:
+      enumName: Assets
+      forceProvidesNamespaces: true
+      publicAccess: true
+colors:
+  inputs: "Configuration/Resources/Colors.json"
+  outputs:
+    templatePath: "Configuration/Templates/colors.stencil"
+    output: "App/SupportingFiles/Generated/Colors.swift"
+    params:
+      forceProvidesNamespaces: true
+      publicAccess: true

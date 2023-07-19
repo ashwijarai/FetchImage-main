@@ -1,0 +1,13 @@
+current directory: /Users/rakeshshetty23/Desktop/FeedMe/vendor/bundle/ruby/2.6.0/gems/json-2.6.3/ext/json
+/Users/rakeshshetty23/.rbenv/versions/2.6.2/bin/ruby -I /Users/rakeshshetty23/.rbenv/versions/2.6.2/lib/ruby/site_ruby/2.6.0 -r ./siteconf20230109-63965-1gvedh4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rakeshshetty23/Desktop/FeedMe/vendor/bundle/ruby/2.6.0/gems/json-2.6.3/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/rakeshshetty23/Desktop/FeedMe/vendor/bundle/ruby/2.6.0/gems/json-2.6.3/ext/json
+make "DESTDIR="
+make[1]: Nothing to be done for `all'.
+
+current directory: /Users/rakeshshetty23/Desktop/FeedMe/vendor/bundle/ruby/2.6.0/gems/json-2.6.3/ext/json
+make "DESTDIR=" install

@@ -1,0 +1,64 @@
+name: ${APP_NAME}
+packages:
+  PrintPackage:
+    path: SDK/PrintPackage
+configs:
+  Devel Debug: debug
+  Devel Release: release
+  Prod Debug: debug
+  Prod Release: release
+settings:
+  configs:
+    Devel Debug:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEVEL DEBUG
+    Devel Release:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEVEL
+    Prod Debug:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: PROD DEBUG
+    Prod Release:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: PROD
+options:
+  bundleIdPrefix: com.XYZ
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "14.0"
+fileGroups:
+- project.yml
+- Configuration
+- Makefile
+targets:
+  ${APP_NAME}:
+    templates:
+    - App
+    type: application
+    platform: iOS
+    sources: "FeedMe"
+    scheme:
+      configVariants:
+        - Devel
+        - Prod
+    preBuildScripts:
+      - path: Scripts/run-swiftlint.sh
+        name: Swiftlint
+      - path: Scripts/run-swiftformat.sh
+        name: SwiftFormat
+    settings:
+        base:
+          PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_IDENTIFIER}
+    dependencies:
+      - package: PrintPackage
+    info:
+      path: Info.plist
+      properties:
+          UIApplicationSceneManifest: {
+                  UIApplicationSupportsMultipleScenes: false,
+                          UISceneConfigurations: {
+                                      UIWindowSceneSessionRoleApplication: [
+                                      {
+                                                          UISceneConfigurationName: Default Configuration,
+                                                          UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate,
+                                                          UISceneStoryboardFile: Main
+                                      }
+                                      ]
+                          }
+          }
